@@ -2,6 +2,7 @@ startGameBtn = document.getElementById("start-game-btn");
 let isAlive;
 let closedCount;
 let windowCount;
+let finishedCount;
 let interval = 2500;
 
 const modules = [
@@ -25,6 +26,7 @@ const modules = [
       counter.checkChange = function () {
         if (this.count === MAX) {
           window.remove();
+          finishedCount++;
         }
       };
       const MAX = 3;
@@ -39,7 +41,6 @@ const modules = [
         target.style.left = 80 * Math.random() + "%";
         target.addEventListener("click", (event) => {
           target.style.display = "none";
-          closedCount++;
           counter.add();
         });
         windowContent.appendChild(target);
@@ -61,7 +62,7 @@ function createWindow() {
     button.className = "close-btn";
     button.innerHTML = "&times;";
     button.addEventListener("click", (event) => {
-      window.style.display = "none";
+      window.remove();
       closedCount++;
       console.log(closedCount);
     });
@@ -69,7 +70,7 @@ function createWindow() {
     return window;
   } else {
     isAlive = false;
-    alert("You lost!");
+    alert("You lost! Your score is " + finishedCount);
     return null;
   }
 }
@@ -77,6 +78,7 @@ function createWindow() {
 startGameBtn.addEventListener("click", (event) => {
   isAlive = true;
   closedCount = 0;
+  finishedCount = 0;
   windowCount = 0;
   startGameBtn.style.display = "none";
 
@@ -84,7 +86,7 @@ startGameBtn.addEventListener("click", (event) => {
     interval *= 0.965 + Math.random() * 0.02;
     interval += Math.random() * 0.04;
     document.querySelector(".wallpaper").appendChild(new modules[0].createFunction());
-    console.log("Current Windows: " + (windowCount - closedCount));
+    console.log("Current Windows: " + (windowCount - closedCount - finishedCount));
     console.log(isAlive);
     if (isAlive) {
       setTimeout(timer, interval);
