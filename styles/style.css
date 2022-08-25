@@ -1,0 +1,57 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.wallpaper {
+  display: block;
+  background-image: url(../assets/windows_wallpaper.jpg);
+  background-repeat: repeat;
+  background-position: right center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  position: relative;
+}
+
+#start-game-btn {
+  position: fixed;
+  z-index: 500;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #000;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.window-borders {
+  padding: 0px 0.15vw 0.15vw 0.15vw;
+  background-color: rgb(37, 37, 37);
+  text-align: right;
+  color: white;
+  position: absolute;
+  top: 87%;
+  left: 79%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.close-btn {
+  color: white;
+  font-size: 1.1vw;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.aim-train {
+  background-color: white;
+}
