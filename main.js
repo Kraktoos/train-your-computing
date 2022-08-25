@@ -83,7 +83,7 @@ startGameBtn.addEventListener("click", (event) => {
   startGameBtn.style.display = "none";
 
   timer = function () {
-    interval *= 0.965 + Math.random() * 0.02;
+    interval *= 0.965 + Math.random() * 0.025;
     interval += Math.random() * 0.04;
     document.querySelector(".wallpaper").appendChild(new modules[0].createFunction());
     console.log("Current Windows: " + (windowCount - closedCount - finishedCount));
