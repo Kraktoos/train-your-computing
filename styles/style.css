@@ -50,10 +50,22 @@ body {
   cursor: pointer;
   background-color: transparent;
   border: none;
+  padding: 0;
+}
+
+.close-btn:hover {
+  color: #c0c0c0;
+  font-weight: bold;
+}
+
+.close-btn:active {
+  color: #afafaf;
+  font-weight: bold;
+  font-size: 1.4em;
 }
 
 .aim-train {
   width: 20vw;
-  height: 5vw;
-  background-color: white;
+  height: 15vw;
+  background-color: #3c3c3c;
 }
