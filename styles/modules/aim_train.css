@@ -2,4 +2,13 @@
   width: 20vw;
   height: 15vw;
   background-color: #3c3c3c;
+  position: relative;
+}
+
+.aim-train .shoot-me {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3vw;
+  cursor: crosshair;
 }

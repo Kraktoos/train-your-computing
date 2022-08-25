@@ -2,7 +2,7 @@ startGameBtn = document.getElementById("start-game-btn");
 let isAlive;
 let closedCount;
 let windowCount;
-let interval = 1500;
+let interval = 2500;
 
 const modules = [
   {
@@ -10,11 +10,43 @@ const modules = [
     correctScore: 40,
     createFunction: function () {
       let window = createWindow();
-      window.style.top = Math.random() * 87 + "%";
+      window.style.top = Math.random() * 75 + "%";
       window.style.left = Math.random() * 79 + "%";
       const windowContent = document.createElement("div");
       windowContent.className = "aim-train";
+
+      let counter = {
+        count: 0,
+        add: function () {
+          this.count++;
+          this.checkChange();
+        },
+      };
+      counter.checkChange = function () {
+        if (this.count === MAX) {
+          window.remove();
+        }
+      };
+      const MAX = 3;
+
+      for (let i = 0; i < MAX; i++) {
+        const target = document.createElement("img");
+        target.src = "assets/target.png";
+        target.alt = "target";
+        target.className = "shoot-me";
+        target.style.width = Math.random() * 2.2 + 2 + "vw";
+        target.style.top = 72 * Math.random() + "%";
+        target.style.left = 80 * Math.random() + "%";
+        target.addEventListener("click", (event) => {
+          target.style.display = "none";
+          closedCount++;
+          counter.add();
+        });
+        windowContent.appendChild(target);
+      }
+
       window.appendChild(windowContent);
+
       return window;
     },
   },
