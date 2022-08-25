@@ -1,0 +1,11 @@
+.wallpaper {
+  display: block;
+  background-image: url(../assets/windows_wallpaper.jpg);
+  background-repeat: repeat;
+  background-position: right center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  position: relative;
+}
