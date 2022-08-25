@@ -54,7 +54,7 @@ const modules = [
 ];
 
 function createWindow() {
-  if (windowCount - closedCount < 10) {
+  if (windowCount - closedCount - finishedCount < 10) {
     windowCount++;
     let window = document.createElement("div");
     window.className = "window-borders";
