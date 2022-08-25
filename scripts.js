@@ -14,13 +14,9 @@ const modules = [
       window.style.left = Math.random() * 79 + "%";
       const windowContent = document.createElement("div");
       windowContent.className = "aim-train";
-      windowContent.style.height = 5 + "vw";
-      windowContent.style.width = 20 + "vw";
       window.appendChild(windowContent);
       return window;
     },
-    height: 5,
-    width: 20,
   },
 ];
 

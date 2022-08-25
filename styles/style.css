@@ -53,5 +53,7 @@ body {
 }
 
 .aim-train {
+  width: 20vw;
+  height: 5vw;
   background-color: white;
 }
