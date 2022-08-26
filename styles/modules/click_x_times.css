@@ -1,0 +1,23 @@
+.click-x-times {
+  width: 12vw;
+  height: 12vw;
+  background-color: #3c3c3c;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.click-x-times .click-me {
+  background-color: #464646;
+  border: none;
+  color: rgb(238, 238, 238);
+  width: 80%;
+  height: 80%;
+  font-size: 3vw;
+}
+
+.click-x-times .click-me:hover {
+  background-color: #4b4b4b;
+  cursor: pointer;
+}

@@ -19,7 +19,7 @@ const modules = [
         window.style.top = Math.random() * 75 + "%";
         window.style.left = Math.random() * 79 + "%";
         const windowContent = document.createElement("div");
-        windowContent.className = "aim-train";
+        windowContent.className = current.className;
 
         let counter = {
           count: 0,
@@ -69,7 +69,7 @@ const modules = [
         window.style.top = Math.random() * 75 + "%";
         window.style.left = Math.random() * 79 + "%";
         const windowContent = document.createElement("div");
-        windowContent.className = "captcha";
+        windowContent.className = current.className;
 
         const captchaCode = document.createElement("p");
         captchaCode.className = "captcha-code";
@@ -99,6 +99,50 @@ const modules = [
         windowContent.appendChild(captchaCode);
         windowContent.appendChild(input);
         windowContent.appendChild(button);
+        window.appendChild(windowContent);
+
+        return window;
+      }
+    },
+  },
+
+  {
+    className: "click-x-times",
+    correctScore: 60,
+    createFunction: function (current) {
+      const MAX = 30;
+      let window = createWindow(`Click ${MAX} Times`);
+      if (window) {
+        window.style.top = Math.random() * 74 + "%";
+        window.style.left = Math.random() * 79 + "%";
+        const windowContent = document.createElement("div");
+        windowContent.className = current.className;
+
+        let counter = {
+          count: MAX,
+          subtract: function () {
+            this.count--;
+            this.checkChange();
+          },
+        };
+        counter.checkChange = function () {
+          button.innerHTML = this.count;
+          if (this.count === 0) {
+            window.remove();
+            finishedCount++;
+            score += current.correctScore;
+          }
+        };
+
+        const button = document.createElement("button");
+        button.className = "click-me";
+        button.innerHTML = MAX;
+
+        button.addEventListener("click", (event) => {
+          counter.subtract();
+        });
+        windowContent.appendChild(button);
+
         window.appendChild(windowContent);
 
         return window;
