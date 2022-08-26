@@ -164,8 +164,10 @@ function updateScore(changed) {
     notification.style.color = "#ff5555";
     notification.innerHTML = changed;
   }
+  notification.style.fontSize = "1.2vw";
   notification.style.opacity = 1;
   setTimeout(() => {
+    notification.style.fontSize = "0";
     notification.style.opacity = 0;
   }, 1500);
 }
