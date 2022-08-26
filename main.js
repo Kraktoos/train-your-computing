@@ -286,17 +286,7 @@ function resetGame() {
   });
 
   newTutorialBtn.addEventListener("click", (event) => {
-    event.preventDefault();
-    newStartGameBtn.remove();
-    newTutorialBtn.remove();
-    const video = document.getElementById("scary-video");
-    video.style.display = "block";
-    video.play();
-    const { documentElement } = document;
-    if (documentElement.requestFullscreen) documentElement.requestFullscreen();
-    else if (documentElement.mozRequestFullScreen) documentElement.mozRequestFullScreen();
-    else if (documentElement.webkitRequestFullscreen) documentElement.webkitRequestFullscreen();
-    else if (documentElement.msRequestFullscreen) documentElement.msRequestFullscreen();
+    console.log("test");
   });
   document.querySelector(".wallpaper").appendChild(newStartGameBtn);
   document.querySelector(".wallpaper").appendChild(newTutorialBtn);
