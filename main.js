@@ -7,7 +7,7 @@ let closedCount;
 let windowCount;
 let finishedCount;
 let score;
-let interval = 6500;
+let interval = 5500;
 
 const modules = [
   {
@@ -165,6 +165,7 @@ function resetGame() {
       console.log("Current Windows: " + (windowCount - closedCount - finishedCount));
       console.log(isAlive);
       if (isAlive) {
+        console.log(interval);
         setTimeout(timer, interval);
       } else {
         resetGame();
