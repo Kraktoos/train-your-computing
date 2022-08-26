@@ -124,7 +124,7 @@ function createWindow(title) {
     return window;
   } else {
     isAlive = false;
-    alert("You lost! Your score is " + finishedCount);
+    alert("You lost! Your score is " + score);
     return null;
   }
 }
