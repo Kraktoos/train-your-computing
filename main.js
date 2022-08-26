@@ -2,6 +2,10 @@ startGameBtn = document.createElement("button");
 startGameBtn.className = "start-game-btn";
 startGameBtn.innerHTML = "Start Game";
 
+const scoreCounterContainer = document.getElementById("score-counter-container");
+const scoreCounter = document.getElementById("score-counter");
+const notification = document.getElementById("notification");
+
 let isAlive;
 let closedCount;
 let windowCount;
@@ -32,8 +36,7 @@ const modules = [
           if (this.count === MAX) {
             window.remove();
             finishedCount++;
-            score += current.correctScore;
-            console.log(score);
+            updateScore(current.correctScore);
           }
         };
         const MAX = 3;
@@ -88,11 +91,11 @@ const modules = [
           if (input.value === captchaCode.innerHTML) {
             window.remove();
             finishedCount++;
-            score += current.correctScore;
+            updateScore(current.correctScore);
           } else {
             window.remove();
             closedCount++;
-            score -= 10;
+            updateScore(-10);
           }
         });
 
@@ -130,7 +133,7 @@ const modules = [
           if (this.count === 0) {
             window.remove();
             finishedCount++;
-            score += current.correctScore;
+            updateScore(current.correctScore);
           }
         };
 
@@ -151,6 +154,22 @@ const modules = [
   },
 ];
 
+function updateScore(changed) {
+  score += changed;
+  scoreCounter.innerHTML = score;
+  if (changed > 0) {
+    notification.style.color = "#55ff55";
+    notification.innerHTML = "+" + changed;
+  } else {
+    notification.style.color = "#ff5555";
+    notification.innerHTML = changed;
+  }
+  notification.style.opacity = 1;
+  setTimeout(() => {
+    notification.style.opacity = 0;
+  }, 1500);
+}
+
 function createWindow(title) {
   if (windowCount - closedCount - finishedCount < 10) {
     windowCount++;
@@ -167,7 +186,7 @@ function createWindow(title) {
     button.addEventListener("click", (event) => {
       window.remove();
       closedCount++;
-      score -= 10;
+      updateScore(-10);
     });
     flexboxContainer.appendChild(windowTitle);
     flexboxContainer.appendChild(button);
@@ -235,6 +254,9 @@ function resetGame() {
 
     newStartGameBtn.remove();
 
+    scoreCounter.style.display = "block";
+    scoreCounter.innerHTML = score;
+
     timer = function () {
       interval *= 0.97 + Math.random() * 0.025;
       interval += Math.random() * 0.04;
@@ -245,8 +267,6 @@ function resetGame() {
           document.querySelector(".wallpaper").appendChild(window);
         }
       }
-      console.log("Current Windows: " + (windowCount - closedCount - finishedCount));
-      console.log(isAlive);
       if (isAlive) {
         console.log(interval);
         setTimeout(timer, interval);
