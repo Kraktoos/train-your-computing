@@ -236,6 +236,7 @@ function createWindow(title) {
   } else {
     isAlive = false;
     alert("You lost! Your score is " + score);
+    scoreCounter.innerHTML = "";
     return null;
   }
 }
@@ -256,7 +257,6 @@ function resetGame() {
 
     newStartGameBtn.remove();
 
-    scoreCounter.style.display = "block";
     scoreCounter.innerHTML = score;
 
     timer = function () {
