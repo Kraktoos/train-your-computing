@@ -11,7 +11,7 @@ let closedCount;
 let windowCount;
 let finishedCount;
 let score;
-let interval = 5500;
+let interval = 4500;
 
 const modules = [
   {
@@ -260,7 +260,7 @@ function resetGame() {
     scoreCounter.innerHTML = score;
 
     timer = function () {
-      interval *= 0.97 + Math.random() * 0.025;
+      interval *= 0.976 + Math.random() * 0.025;
       interval += Math.random() * 0.04;
       randomModule = modules[Math.floor(Math.random() * modules.length)];
       if (isAlive) {
