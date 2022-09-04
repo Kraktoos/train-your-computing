@@ -2,10 +2,6 @@ startGameBtn = document.createElement("button");
 startGameBtn.className = "start-game-btn";
 startGameBtn.innerHTML = "Start Game";
 
-tutorialBtn = document.createElement("button");
-tutorialBtn.className = "tutorial-btn";
-tutorialBtn.innerHTML = "Tutorial";
-
 const scoreCounterContainer = document.getElementById("score-counter-container");
 const scoreCounter = document.getElementById("score-counter");
 const notification = document.getElementById("notification");
@@ -253,7 +249,6 @@ function resetGame() {
   score = 0;
   document.querySelector(".wallpaper").innerHTML = "";
   const newStartGameBtn = startGameBtn.cloneNode(true);
-  const newTutorialBtn = tutorialBtn.cloneNode(true);
 
   newStartGameBtn.addEventListener("click", (event) => {
     if (!isAlive) {
@@ -261,7 +256,6 @@ function resetGame() {
     }
 
     newStartGameBtn.remove();
-    newTutorialBtn.remove();
 
     scoreCounter.innerHTML = score;
 
@@ -285,11 +279,7 @@ function resetGame() {
     timer();
   });
 
-  newTutorialBtn.addEventListener("click", (event) => {
-    console.log("test");
-  });
   document.querySelector(".wallpaper").appendChild(newStartGameBtn);
-  document.querySelector(".wallpaper").appendChild(newTutorialBtn);
 }
 
 resetGame();

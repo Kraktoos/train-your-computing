@@ -56,20 +56,6 @@
   cursor: pointer;
 }
 
-.tutorial-btn {
-  position: fixed;
-  z-index: 500;
-  bottom: 0;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: #fff;
-  border: 0.1vw solid #000;
-  border-radius: 0.2vw;
-  padding: 0.5vw 1vw;
-  font-size: 1.25vw;
-  cursor: pointer;
-}
-
 .window-borders {
   padding: 0px 0.15vw 0.15vw 0.15vw;
   background-color: rgb(37, 37, 37);
