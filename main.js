@@ -11,7 +11,7 @@ let closedCount;
 let windowCount;
 let finishedCount;
 let score;
-let interval = 4500;
+let interval = 3500;
 
 const modules = [
   {
