@@ -1,10 +1,19 @@
-startGameBtn = document.createElement("button");
-startGameBtn.className = "start-game-btn";
-startGameBtn.innerHTML = "Start Game";
+const menuContainer = document.createElement("div");
+menuContainer.className = "menu-container";
+const rankedBtn = document.createElement("button");
+rankedBtn.className = "ranked-btn";
+rankedBtn.innerHTML = "Ranked";
+const infinitePracticeBtn = document.createElement("button");
+infinitePracticeBtn.className = "infinite-practice-btn";
+infinitePracticeBtn.innerHTML = "Practice Infinitely";
+menuContainer.appendChild(rankedBtn);
+menuContainer.appendChild(infinitePracticeBtn);
 
 const scoreCounterContainer = document.getElementById("score-counter-container");
 const scoreCounter = document.getElementById("score-counter");
 const notification = document.getElementById("notification");
+
+let last10 = JSON.parse(localStorage.getItem("last10")) ? JSON.parse(localStorage.getItem("last10")) : [];
 
 let isAlive;
 let closedCount;
@@ -248,14 +257,14 @@ function resetGame() {
   windowCount = 0;
   score = 0;
   document.querySelector(".wallpaper").innerHTML = "";
-  const newStartGameBtn = startGameBtn.cloneNode(true);
+  const newMenuContainer = menuContainer.cloneNode(true);
 
-  newStartGameBtn.addEventListener("click", (event) => {
+  newMenuContainer.getElementsByClassName("infinite-practice-btn")[0].addEventListener("click", (event) => {
     if (!isAlive) {
       resetGame();
     }
 
-    newStartGameBtn.remove();
+    newMenuContainer.remove();
 
     scoreCounter.innerHTML = score;
 
@@ -274,12 +283,13 @@ function resetGame() {
         setTimeout(timer, interval);
       } else {
         resetGame();
+        localStorage.setItem("last10", JSON.stringify(last10));
       }
     };
     timer();
   });
 
-  document.querySelector(".wallpaper").appendChild(newStartGameBtn);
+  document.querySelector(".wallpaper").appendChild(newMenuContainer);
 }
 
 resetGame();
