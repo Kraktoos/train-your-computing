@@ -1,12 +1,11 @@
-import { createWindow } from "../createWindow.js";
-import { updateScore, addFinishedCount, addClosedCount } from "../main.js";
+import { createNewWindow, updateScore, addFinishedCount, addClosedCount } from "../main.js";
 
 export const clickXTimes = {
   className: "click-x-times",
   correctScore: 60,
   createFunction: function (current) {
     const MAX = 30;
-    let window = createWindow(`Click ${MAX} Times`);
+    let window = createNewWindow(`Click ${MAX} Times`);
     if (window) {
       window.style.top = Math.random() * 75 + "%";
       window.style.left = Math.random() * 79 + "%";

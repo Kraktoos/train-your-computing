@@ -5,14 +5,27 @@ import { createWindow } from "./createWindow.js";
 
 const menuContainer = document.createElement("div");
 menuContainer.className = "menu-container";
-const rankedBtn = document.createElement("button");
-rankedBtn.className = "ranked-btn";
-rankedBtn.innerHTML = "Ranked";
-const infinitePracticeBtn = document.createElement("button");
-infinitePracticeBtn.className = "infinite-practice-btn";
-infinitePracticeBtn.innerHTML = "Practice Infinitely";
-menuContainer.appendChild(rankedBtn);
-menuContainer.appendChild(infinitePracticeBtn);
+
+const menuTitle = document.createElement("h1");
+menuTitle.className = "menu-title";
+menuTitle.innerHTML = "Practice Your Computing";
+
+menuContainer.appendChild(menuTitle);
+
+const menuBtns = document.createElement("div");
+menuBtns.className = "menu-btns";
+
+const startBtn = document.createElement("button");
+startBtn.className = "start-btn btn";
+startBtn.innerHTML = "Start";
+menuBtns.appendChild(startBtn);
+
+const settingsBtn = document.createElement("button");
+settingsBtn.className = "settings-btn btn";
+settingsBtn.innerHTML = "Settings";
+menuBtns.appendChild(settingsBtn);
+
+menuContainer.appendChild(menuBtns);
 
 const scoreCounterContainer = document.getElementById("score-counter-container");
 const scoreCounter = document.getElementById("score-counter");
@@ -59,8 +72,9 @@ export function addClosedCount() {
   closedCount++;
 }
 
-function createNewWindow(title) {
+export function createNewWindow(title) {
   if (windowCount - closedCount - finishedCount < 10) {
+    windowCount++;
     return createWindow(title);
   } else {
     isAlive = false;
@@ -79,7 +93,7 @@ function resetGame() {
   document.querySelector(".wallpaper").innerHTML = "";
   const newMenuContainer = menuContainer.cloneNode(true);
 
-  newMenuContainer.getElementsByClassName("infinite-practice-btn")[0].addEventListener("click", (event) => {
+  newMenuContainer.getElementsByClassName("start-btn")[0].addEventListener("click", (event) => {
     if (!isAlive) {
       resetGame();
     }

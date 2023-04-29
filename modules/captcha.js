@@ -1,11 +1,10 @@
-import { createWindow } from "../createWindow.js";
-import { updateScore, addFinishedCount, addClosedCount } from "../main.js";
+import { createNewWindow, updateScore, addFinishedCount, addClosedCount } from "../main.js";
 
 export const captcha = {
   className: "captcha",
   correctScore: 50,
   createFunction: function (current) {
-    let window = createWindow("Captcha");
+    let window = createNewWindow("Captcha");
     if (window) {
       window.style.top = Math.random() * 75 + "%";
       window.style.left = Math.random() * 79 + "%";

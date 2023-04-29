@@ -1,11 +1,10 @@
-import { createWindow } from "../createWindow.js";
-import { updateScore, addFinishedCount } from "../main.js";
+import { createNewWindow, updateScore, addFinishedCount } from "../main.js";
 
 export const aimTrain = {
   className: "aim-train",
   correctScore: 20,
   createFunction: function (current) {
-    let window = createWindow("Train Aim");
+    let window = createNewWindow("Train Aim");
     if (window) {
       window.style.top = Math.random() * 75 + "%";
       window.style.left = Math.random() * 79 + "%";
