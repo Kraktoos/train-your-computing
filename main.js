@@ -8,7 +8,7 @@ menuContainer.className = "menu-container";
 
 const menuTitle = document.createElement("h1");
 menuTitle.className = "menu-title";
-menuTitle.innerHTML = "Practice Your Computing";
+menuTitle.innerHTML = "Train Your Computing";
 
 menuContainer.appendChild(menuTitle);
 
